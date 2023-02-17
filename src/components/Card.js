@@ -5,8 +5,6 @@ function Card() {
   const {
     questions,
     show,
-    answers,
-    getAnswer,
     setShow,
     gameOverModal,
     setGameOverModal,
@@ -17,6 +15,7 @@ function Card() {
   const [checker, setChecker] = useState();
   const [count, setCount] = useState(0);
   const [score, setScore] = useState();
+  const [answers, setAnswers] = useState();
   const [belowAverage] = useState([
     "Keep going, you're making progress!",
     "Believe in yourself and your abilities.",
@@ -77,6 +76,11 @@ function Card() {
       setDisplay(newArray.slice(0, 10));
     }
   }, [checker, newArray]);
+
+  const getAnswer = (index) => {
+    setAnswers(display[index].answer);
+    setShow(true);
+  };
   return (
     <>
       {display.map((test, index) => {

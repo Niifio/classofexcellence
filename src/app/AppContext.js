@@ -8,7 +8,6 @@ const AppProvider = ({ children }) => {
   const [mode, setMode] = useState("medium");
   const [type, setType] = useState("idiom");
   const [show, setShow] = useState(false);
-  const [answers, setAnswers] = useState();
   const [seconds, setSeconds] = useState(60);
   const [gameOverModal, setGameOverModal] = useState(false);
   const [endGame, setEndGame] = useState(true);
@@ -29,12 +28,6 @@ const AppProvider = ({ children }) => {
     }
     setLoading(false);
     setQuestions(set);
-  };
-
-  //Checking the answer by opening the modal
-  const getAnswer = (index) => {
-    setAnswers(questions[index].answer);
-    setShow(true);
   };
 
   // choosing the time duration
@@ -120,7 +113,6 @@ const AppProvider = ({ children }) => {
         mode,
         showGameModal,
         gameOverModal,
-        answers,
         loading,
         seconds,
         endGame,
@@ -128,7 +120,6 @@ const AppProvider = ({ children }) => {
         getTime,
         fetchData,
         setShow,
-        getAnswer,
         getMode,
         getGameName,
         closeGameModal,
