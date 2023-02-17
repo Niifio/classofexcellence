@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { useGlobalContext } from "../app/AppContext";
 
 function HomePage() {
@@ -35,7 +33,6 @@ function HomePage() {
 
             <div
               className="game-card idiom bounce"
-              //   dangerouslySetInnerHTML={{ __html: idiomGame }}
               onClick={(e) => getGameName(e)}
             >
               idiom game!
@@ -43,7 +40,6 @@ function HomePage() {
 
             <div
               className="game-card riddle bounce"
-              //   dangerouslySetInnerHTML={{ __html: riddleGame }}
               onClick={(e) => getGameName(e)}
             >
               riddle game!

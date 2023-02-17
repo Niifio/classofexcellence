@@ -16,7 +16,6 @@ body {
   display: flex;
   width: 100vw;
   height: 100vh;
-  /* align-items: center; */
   justify-content: center;
   margin-top: 1.5rem;
 }
@@ -27,7 +26,6 @@ body {
   justify-content: center;
   width: 100vw;
   overflow: none;
-  /* margin-top: 0.5rem; */
 }
 
 .card {
@@ -42,7 +40,6 @@ body {
   border: 1px solid #750075;
   overflow: hidden;
   margin: 0.2em;
-  /* background-color: #222222; */
   box-shadow: 2px 2px 5px 0px rgba(117, 0, 117, 0.2);
   background-image: url(images/bgdark.jpeg);
 }
@@ -58,7 +55,6 @@ body {
   letter-spacing: 2px;
   line-height: 1;
   padding: 5px;
-  /* color: #e8e4c9; */
   color: transparent;
   background-color: rgb(232, 228, 201);
   text-shadow: rgba(232, 228, 201, 0.4);
@@ -88,7 +84,6 @@ body {
   top: 0;
   left: 0;
   z-index: 100;
-  /* background-color: rgba(0, 0, 0, 0.8);  */
   background-color: white5;
 }
 .modal-content {
@@ -105,7 +100,6 @@ body {
 }
 .close {
   color: rgb(255, 0, 0);
-  /* color: #750075; */
   float: right;
   width: 40px;
   height: 40px;
@@ -117,7 +111,6 @@ body {
   justify-content: center;
   margin-top: -40px;
   margin-right: -40px;
-  /* background-color: #000; */
   background-image: url(images/bgdark.jpeg);
 }
 .close span {
@@ -132,7 +125,6 @@ body {
 
 .timer {
   font-family: "Pacifico";
-  /* margin-top: 2em; */
   margin-bottom: 1em;
   height: 40px;
   display: flex;
@@ -142,13 +134,11 @@ body {
 .timer-container {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
 }
 .timer-container .time h1 {
   padding: 0;
   font-size: 2.5em;
   letter-spacing: 5px;
-  /* color: #e8e4c9; */
   color: rgb(232, 228, 201);
 }
 
@@ -376,15 +366,10 @@ li {
   margin-left: 10px;
   cursor: pointer;
   background: #750075;
-  /* box-shadow: 0 5px #fefefe; */
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
-  /* transform: translateY(4px); */
-  /* transition: all 0.1s ease-out; */
 }
 
 li:active {
-  /* transform: translateY(1px); */
-  /* box-shadow: 0 2px #666; */
   background: #c71066;
 }
 

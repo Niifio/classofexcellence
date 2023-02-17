@@ -9,8 +9,6 @@ const AppProvider = ({ children }) => {
   const [type, setType] = useState("idiom");
   const [show, setShow] = useState(false);
   const [answers, setAnswers] = useState();
-  //   const [pages, setPages] = useState(0);
-  //   const [cleared, setCleared] = useState();
   const [seconds, setSeconds] = useState(60);
   const [gameOverModal, setGameOverModal] = useState(false);
   const [endGame, setEndGame] = useState(true);
@@ -32,29 +30,12 @@ const AppProvider = ({ children }) => {
     setLoading(false);
     setQuestions(set);
   };
-  //   console.log(questions);
-  //   const filterItems = (results) => {
-  //     const set = results.filter((item) => {
-  //       return item.mode === mode && item.type === type;
-  //     });
-  //     shuffledItem(set);
-  //   };
-
-  //   const shuffledItem = (set) => {
-  //     for (let i = set.length - 1; i > 0; i--) {
-  //       const j = Math.floor(Math.random() * (i + 1));
-  //       [set[i], set[j]] = [set[j], set[i]];
-  //     }
-  //     setQuestions(set);
-  //   };
 
   //Checking the answer by opening the modal
   const getAnswer = (index) => {
     setAnswers(questions[index].answer);
     setShow(true);
   };
-
-  //filtering the answered questions
 
   // choosing the time duration
   const getTime = (e) => {
@@ -86,7 +67,6 @@ const AppProvider = ({ children }) => {
     } else if (e.target.innerHTML === "Hard") {
       setMode("difficult");
     }
-    console.log(e.target.innerHTML);
   };
 
   // Getting the name of the Game
@@ -99,7 +79,6 @@ const AppProvider = ({ children }) => {
     } else {
       setType("words");
     }
-    console.log(e.target.innerHTML);
     setGame((prev) => (prev = e.target.innerHTML));
     setGameOverModal(false);
     setShowGameModal(true);
@@ -129,6 +108,7 @@ const AppProvider = ({ children }) => {
   }, [gameOverModal]);
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, type]);
   return (
     <AppContext.Provider

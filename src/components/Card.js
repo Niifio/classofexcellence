@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "../app/AppContext";
-import remarks from "../app/studentRemarks";
 
 function Card() {
   const {
-    loading,
     questions,
     show,
     answers,
@@ -14,29 +12,56 @@ function Card() {
     setGameOverModal,
   } = useGlobalContext();
 
-  const { belowAverage, aboveAverage, average } = remarks;
-
-  //   console.log(questions);
   const [newArray, setNewArray] = useState(questions);
   const [display, setDisplay] = useState(newArray.slice(0, 10));
   const [checker, setChecker] = useState();
   const [count, setCount] = useState(0);
+  const [score, setScore] = useState();
+  const [belowAverage] = useState([
+    "Keep going, you're making progress!",
+    "Believe in yourself and your abilities.",
+    "Stay focused and stay positive, you can achieve your goals!",
+    "Keep pushing yourself, you're capable of more than you think.",
+    "You are capable, you are smart, and you are going to succeed!",
+  ]);
+  const [average] = useState([
+    "You're doing great, don't give up!",
+    "Mistakes are part of the learning process, keep trying!",
+    "You've got this, just take it one step at a time.",
+    "Keep up the good work, you're on the right track.",
+    "Don't compare yourself to others, everyone learns at their own pace.",
+  ]);
+  const [aboveAverage] = useState([
+    "Excellent work, you should be proud of yourself!",
+    "Well done, you really nailed it!",
+    "Impressive effort, keep it up!",
+    "Outstanding job, you're really shining!",
+    "You're a star student, keep aiming high!",
+  ]);
   const [userRemarks, setUserRemarks] = useState("");
   useEffect(() => {
-    if (Math.floor((count / questions.length) * 100) < 50) {
-      let belowAverager = Math.floor(Math.random() * belowAverage.length);
-      setUserRemarks(belowAverage[belowAverager]);
-    } else if (
-      Math.floor((count / questions.length) * 100) > 50 &&
-      Math.floor((count / questions.length) * 100) < 80
-    ) {
-      let averager = Math.ceil(Math.random() * average.length);
-      setUserRemarks(average[averager]);
-    } else if (Math.floor((count / questions.length) * 100) > 80) {
-      let aboveAverager = Math.ceil(Math.random() * aboveAverage.length);
-      setUserRemarks(aboveAverage[aboveAverager]);
+    setScore(Math.floor((count / questions.length) * 100));
+  }, [count, questions.length]);
+
+  useEffect(() => {
+    let msg = Math.floor(Math.random() * 5);
+
+    if (score < 50) {
+      setUserRemarks(belowAverage[msg]);
+    } else if (score > 50 && score < 80) {
+      setUserRemarks(average[msg]);
+    } else if (score > 80) {
+      setUserRemarks(aboveAverage[msg]);
     }
-  }, [belowAverage, average, aboveAverage, count, questions, userRemarks]);
+  }, [
+    belowAverage,
+    average,
+    aboveAverage,
+    count,
+    questions,
+    userRemarks,
+    score,
+  ]);
 
   const correctHandler = (id) => {
     setNewArray((prevArray) => prevArray.filter((obj) => obj.id !== id));
@@ -44,9 +69,7 @@ function Card() {
     setChecker(newArray.length);
     setCount(count + 1);
     if (newArray.length === 1) {
-      console.log("getting there");
       setGameOverModal(true);
-      //   setSeconds();
     }
   };
   useEffect(() => {
@@ -84,7 +107,7 @@ function Card() {
               <div className="modal-title"> Game Over</div>
               <div className="modal-input remark">
                 <p>{userRemarks}</p>
-                <p> score : {Math.floor((count / questions.length) * 100)} %</p>
+                <p> score : {score} %</p>
               </div>
             </div>
           </div>
