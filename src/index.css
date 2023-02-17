@@ -1,0 +1,539 @@
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Montserrat:wght@400;500;600&family=Open+Sans:wght@400;500;800&family=Roboto:wght@400;500;700&family=Source+Code+Pro:wght@400;500;600&family=Pacifico&family=Roboto:wght@400;500;700&family=Space+Grotesk:wght@400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(images/bgdark.jpeg);
+  background-color: rgba(0, 0, 0, 0.8);
+  font-family: "Open Sans";
+  font-weight: 500;
+}
+.app-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  /* align-items: center; */
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100vw;
+  overflow: none;
+  /* margin-top: 0.5rem; */
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 98%;
+  word-wrap: break-word;
+  position: relative;
+  border-radius: 10px;
+  height: auto;
+  border: 1px solid #750075;
+  overflow: hidden;
+  margin: 0.2em;
+  /* background-color: #222222; */
+  box-shadow: 2px 2px 5px 0px rgba(117, 0, 117, 0.2);
+  background-image: url(images/bgdark.jpeg);
+}
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  overflow: auto;
+}
+.card-content p {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  line-height: 1;
+  padding: 5px;
+  /* color: #e8e4c9; */
+  color: transparent;
+  background-color: rgb(232, 228, 201);
+  text-shadow: rgba(232, 228, 201, 0.4);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+.card button {
+  font-family: "Pacifico";
+  position: absolute;
+  margin: 0 auto;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  font-size: 1rem;
+  border: none;
+  background-color: #750075;
+  color: rgb(232, 228, 201);
+}
+.modal-container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  /* background-color: rgba(0, 0, 0, 0.8);  */
+  background-color: white5;
+}
+.modal-content {
+  background-color: #fefefe;
+  width: 80%;
+  top: 100%;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+}
+.modal-input.remark {
+  font-family: "Pacifico";
+  font-size: 1.5rem;
+}
+.close {
+  color: rgb(255, 0, 0);
+  /* color: #750075; */
+  float: right;
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -40px;
+  margin-right: -40px;
+  /* background-color: #000; */
+  background-image: url(images/bgdark.jpeg);
+}
+.close span {
+  font-size: 28px;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.timer {
+  font-family: "Pacifico";
+  /* margin-top: 2em; */
+  margin-bottom: 1em;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.timer-container {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+.timer-container .time h1 {
+  padding: 0;
+  font-size: 2.5em;
+  letter-spacing: 5px;
+  /* color: #e8e4c9; */
+  color: rgb(232, 228, 201);
+}
+
+.cancel-btn {
+  font-family: "Pacifico";
+  font-size: 1.4em;
+  width: 90%;
+  left: 5%;
+  right: 5%;
+  bottom: 1em;
+  padding: 1rem;
+  border: 0.5px solid rgb(101, 100, 100);
+  border-radius: 10px;
+  background-color: rgb(117, 0, 117);
+  color: rgb(232, 228, 201);
+  letter-spacing: 2px;
+  font-weight: 800;
+  position: fixed;
+}
+
+.home-container {
+  width: 100vw;
+  height: 100vh;
+}
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 95%;
+  margin-top: 1.5em;
+}
+.intro-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  max-width: 80%;
+  height: 30%;
+  padding: 2rem;
+  border: 3px solid whitesmoke;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #000;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.intro-card h1 {
+  font-family: "Great Vibes";
+  font-size: 3.2em;
+  margin-bottom: 0;
+  color: red;
+  line-height: 0.8;
+  max-width: 100%;
+  max-height: 100%;
+  transform: rotate(320deg);
+  transform-origin: 20px 20px;
+}
+.intro-card h1 .red {
+  color: blue;
+}
+.intro-card p {
+  font-family: "Alex Brush";
+  font-size: 3em;
+  line-height: 0.8;
+  margin-bottom: 0;
+  color: pink;
+}
+.game-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    " word word idiom idiom"
+    " . riddle riddle .";
+  width: 90%;
+  height: 50%;
+  gap: 1em;
+}
+.word {
+  grid-area: word;
+}
+.riddle {
+  grid-area: riddle;
+}
+.idiom {
+  grid-area: idiom;
+}
+.game-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  line-height: 1;
+  font-family: "Pacifico";
+  color: whitesmoke;
+  padding-left: 2.2rem;
+  border-radius: 10px;
+}
+.game-select {
+  color: #fff;
+  padding: 0.2em;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  font-weight: 500;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.bounce,
+.loader {
+  position: relative;
+  background-color: #000;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.bounce::before,
+.bounce::after,
+.intro-card::before,
+.intro-card::after,
+.loader::after,
+.loader::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: white;
+  border-radius: 10px;
+}
+.bounce::before,
+.intro-card::before,
+.loader::before {
+  z-index: -1;
+}
+.bounce::after,
+.intro-card::after,
+.loader::after {
+  z-index: -2;
+  filter: blur(10px);
+}
+
+.bounce::before,
+.bounce::after,
+.loader::after,
+.loader::before {
+  background: linear-gradient(
+    45deg,
+    #e6fb04,
+    #ff6600,
+    #00ff66,
+    #00ffff,
+    #ff00ff,
+    #ff0099,
+    #6e0dd0,
+    #ff3300,
+    #099fff
+  );
+  animation: animate 20s linear infinite;
+  background-size: 400%;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Home page modal */
+.modal-container.game {
+  top: 15vh;
+  height: 60vh;
+  border: none;
+}
+.modal-content.game-content {
+  height: 100%;
+  background-image: url(images/bgdark.jpeg);
+  color: #fff;
+  z-index: 10;
+}
+.modal-sections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.modal-title {
+  font-family: "Pacifico";
+  font-size: 3em;
+}
+.modal-input {
+  width: 100%;
+}
+.modal-mode,
+.modal-timer {
+  display: flex;
+  margin-bottom: 2rem;
+}
+.modal-mode p,
+.modal-timer p {
+  font-family: "Pacifico";
+  font-size: 1.4em;
+}
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  font-weight: 600;
+  color: #fefefe;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+  cursor: pointer;
+  background: #750075;
+  /* box-shadow: 0 5px #fefefe; */
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  /* transform: translateY(4px); */
+  /* transition: all 0.1s ease-out; */
+}
+
+li:active {
+  /* transform: translateY(1px); */
+  /* box-shadow: 0 2px #666; */
+  background: #c71066;
+}
+
+.game-content button {
+  width: 100%;
+  font-family: "Pacifico";
+  font-size: 1.4em;
+  padding: 0.2em;
+  box-shadow: 2px 2px 5px 0px rgba(255, 255, 255);
+  border: 0.5px solid black;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #750075;
+  border: none;
+  cursor: pointer;
+}
+
+.loader-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  color: #fff;
+}
+.loader::after,
+.loader::before {
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 374px) {
+  .intro-card h1,
+  .intro-card p,
+  .game-card,
+  .modal-title {
+    font-size: 3em;
+  }
+  .modal-sections {
+    gap: 1em;
+  }
+  .modal-mode,
+  .modal-timer {
+    margin-bottom: 0.8rem;
+  }
+  .modal-mode p,
+  .modal-timer p {
+    font-size: 0.8rem;
+  }
+  li {
+    width: 30px;
+    height: 30px;
+    font-weight: 400;
+    font-size: 10px;
+  }
+  .game-content button {
+    font-size: 1em;
+  }
+  .card button {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 760px) and (min-width: 576px) {
+  .app-container {
+    max-width: 70vw;
+    margin: 0 auto;
+  }
+  .intro-card h1 {
+    font-size: 3.8em;
+  }
+  .intro-card p {
+    font-size: 3.2em;
+    margin-left: -2rem;
+  }
+}
+@media screen and (min-width: 760px) {
+  .app-container {
+    max-width: 70vw;
+    margin: 0 auto;
+  }
+  .intro-card {
+    max-height: 35%;
+  }
+  .intro-card h1 {
+    font-size: 4.6em;
+  }
+  .intro-card p {
+    font-size: 4.2em;
+    margin-left: -3rem;
+  }
+  .card {
+    width: 68vw;
+    margin: 0 auto;
+    margin-bottom: 0.3em;
+  }
+  .cancel-btn {
+    width: 68vw;
+    margin: 0 auto;
+  }
+  .modal-container {
+    width: 70%;
+    margin: 0 auto;
+    left: 15%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .intro-card h1 {
+    font-size: 5.6em;
+    transform-origin: 80px 0px;
+  }
+  .intro-card p {
+    font-size: 5.2em;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-height: 548px) {
+  .intro-card p {
+    font-size: 1.5em;
+  }
+  .modal-container {
+    margin-top: -40px;
+  }
+  .modal-sections {
+    gap: 0.5em;
+  }
+  .modal-mode,
+  .modal-timer {
+    margin-bottom: 0.4rem;
+  }
+  .modal-mode p,
+  .modal-timer p {
+    font-size: 0.5rem;
+  }
+  li {
+    width: 20px;
+    height: 20px;
+    font-weight: 400;
+    font-size: 10px;
+  }
+  .game-content button {
+    margin-top: -40px;
+    font-size: 0.5em;
+  }
+}
