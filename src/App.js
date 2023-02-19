@@ -4,7 +4,7 @@ import Card from "./components/Card";
 import HomePage from "./page/HomePage";
 import Loader from "./components/Loader";
 function App() {
-  const { endGame, cancelGame, gameOverModal, loading } = useGlobalContext();
+  const { endGame, loading } = useGlobalContext();
 
   return (
     <>
