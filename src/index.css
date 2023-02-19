@@ -11,22 +11,40 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   font-family: "Open Sans";
   font-weight: 500;
+  overflow-y: hidden;
+  /* height: 100vh;
+  width: 100vw; */
 }
 .app-container {
-  display: flex;
+  /* display: flex;
   width: 100vw;
   height: 100vh;
   justify-content: center;
   margin-top: 1.5rem;
+  border: 2px solid red; */
+  display: grid;
+  grid-template: " b b b" 97%;
+  width: 100vw;
+  height: 100vh;
 }
-.container {
+/* .head {
+  grid-area: a;
+  border: 1px solid yellow;
+} */
+.main {
+  grid-area: b;
+  height: 100%;
+  width: 100%;
+}
+
+/* .container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   width: 100vw;
   overflow: none;
-}
+} */
 
 .card {
   display: flex;
@@ -38,8 +56,7 @@ body {
   border-radius: 10px;
   height: auto;
   border: 1px solid #750075;
-  overflow: hidden;
-  margin: 0.2em;
+  margin-bottom: 0.25em;
   box-shadow: 2px 2px 5px 0px rgba(117, 0, 117, 0.2);
   background-image: url(images/bgdark.jpeg);
 }
@@ -49,6 +66,13 @@ body {
   justify-content: center;
   width: 80%;
   overflow: auto;
+}
+.card-container.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-start;
 }
 .card-content p {
   font-size: 1rem;
@@ -122,7 +146,18 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-
+.time {
+  display: flex;
+  /* border: 10px solid red; */
+}
+.times {
+  /* color: rgb(232, 228, 201); */
+  color: rgb(117, 0, 117);
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 0.6rem;
+}
 .timer {
   font-family: "Pacifico";
   margin-bottom: 1em;
@@ -159,10 +194,10 @@ body {
   position: fixed;
 }
 
-.home-container {
+/* .home-container {
   width: 100vw;
   height: 100vh;
-}
+} */
 .home-content {
   display: flex;
   flex-direction: column;
@@ -408,6 +443,33 @@ li:active {
   border-radius: 50%;
 }
 
+@media screen and (orientation: landscape) and (max-height: 548px) {
+  .intro-card h1 {
+    /* transform: (0deg); */
+    transform: rotate(0deg);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .app-container {
+    display: grid;
+    grid-template: " b b b" 100%;
+    margin-left: 10vw;
+    width: 80vw;
+    height: 100vh;
+  }
+  .modal-container {
+    width: 70%;
+    left: 15%;
+  }
+  .app-container.cards {
+    margin-left: 10vw;
+    width: 60vw;
+  }
+  .times {
+    right: 25vw;
+  }
+}
+/* 
 @media screen and (max-width: 374px) {
   .intro-card h1,
   .intro-card p,
@@ -521,4 +583,4 @@ li:active {
     margin-top: -40px;
     font-size: 0.5em;
   }
-}
+} */

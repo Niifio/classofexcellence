@@ -13,7 +13,7 @@ function HomePage() {
 
   return (
     <>
-      <div className="home-container">
+      <div className="home-container main">
         <div className="home-content">
           <div className="intro-card">
             <h1>

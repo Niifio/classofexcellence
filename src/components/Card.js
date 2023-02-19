@@ -2,13 +2,8 @@ import { useEffect, useState } from "react";
 import { useGlobalContext } from "../app/AppContext";
 
 function Card() {
-  const {
-    questions,
-    show,
-    setShow,
-    gameOverModal,
-    setGameOverModal,
-  } = useGlobalContext();
+  const { questions, show, setShow, gameOverModal, setGameOverModal } =
+    useGlobalContext();
 
   const [newArray, setNewArray] = useState(questions);
   const [display, setDisplay] = useState(newArray.slice(0, 10));
@@ -83,40 +78,45 @@ function Card() {
   };
   return (
     <>
-      {display.map((test, index) => {
-        const { question, id } = test;
-        return (
-          <div className="card" key={id}>
-            <button onClick={() => correctHandler(id)}>correct</button>
-            <div className="card-content" onClick={() => getAnswer(index)}>
-              <p>{question.toLowerCase()}</p>
-            </div>
-          </div>
-        );
-      })}
-      {show ? (
-        <div className="modal-container">
-          <div className="modal-content" onClick={() => setShow(false)}>
-            <div className="close">
-              <span>&times;</span>
-            </div>
-            <p>{answers}</p>
-          </div>
-        </div>
-      ) : null}
-      {gameOverModal ? (
-        <div className="modal-container game">
-          <div className="modal-content game-content">
-            <div className="modal-sections">
-              <div className="modal-title"> Game Over</div>
-              <div className="modal-input remark">
-                <p>{userRemarks}</p>
-                <p> score : {score} %</p>
+      <div className="app-container cards">
+        <div className="card-container main">
+          {display.map((test, index) => {
+            const { question, id } = test;
+            return (
+              <div className="card" key={id}>
+                <button onClick={() => correctHandler(id)}>correct</button>
+                <div className="card-content" onClick={() => getAnswer(index)}>
+                  <p>{question.toLowerCase()}</p>
+                </div>
+              </div>
+            );
+          })}
+
+          {show ? (
+            <div className="modal-container">
+              <div className="modal-content" onClick={() => setShow(false)}>
+                <div className="close">
+                  <span>&times;</span>
+                </div>
+                <p>{answers}</p>
               </div>
             </div>
-          </div>
+          ) : null}
+          {gameOverModal ? (
+            <div className="modal-container game">
+              <div className="modal-content game-content">
+                <div className="modal-sections">
+                  <div className="modal-title"> Game Over</div>
+                  <div className="modal-input remark">
+                    <p>{userRemarks}</p>
+                    <p> score : {score} %</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : null}
         </div>
-      ) : null}
+      </div>
     </>
   );
 }

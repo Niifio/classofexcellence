@@ -21,13 +21,11 @@ function App() {
                   <div className="timer">
                     <Timer />
                   </div>
-                  <div className="container">
-                    <Card />
-                  </div>
+                  <Card />
                 </div>
-                <button className="cancel-btn" onClick={cancelGame}>
+                {/* <button className="cancel-btn" onClick={cancelGame}>
                   {gameOverModal ? "Start Over" : "End Game"}
-                </button>
+                </button> */}
               </>
             )}
           </>
