@@ -469,6 +469,11 @@ li:active {
     right: 25vw;
   }
 }
+@media screen and (max-width: 374px) {
+  .card button {
+    font-size: 0.8rem;
+  }
+}
 /* 
 @media screen and (max-width: 374px) {
   .intro-card h1,
